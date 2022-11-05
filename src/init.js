@@ -1,13 +1,25 @@
-const content = document.getElementById('content'),
-  pageTitle = document.createElement('div'),
-  pageBody = document.createElement('div');
- 
-pageTitle.id = 'pageTitle';
-pageTitle.textContent = 'Restaurant X';
-pageBody.id = 'pageBody';
+const content = document.getElementById('content'), 
+  divElements = [];
 
+const divObjector = (div, parent, text, divClass = '') => {
+  const createdDiv = document.createElement('div');
+  createdDiv.id = div;
+  createdDiv.textContent = text;
+  createdDiv.className = divClass;
+  return {name: div, parent, createdDiv}
+}
 
-content.appendChild(pageTitle);
-content.appendChild(pageBody);
+const pageTitle = divObjector('pageTitle', content, 'Restaurant Menu'),
+  pageBody = divObjector('pageBody', content),
+  leftBody = divObjector('leftBody', pageBody.createdDiv, undefined, 'pageBodySection'),
+  rightBody = divObjector('rightBody', pageBody.createdDiv, undefined, 'pageBodySection');
 
-export default content;
+const divMaker = (...divObject) => {
+  divObject.forEach(div => {
+    const divElement = div.createdDiv;
+    div.parent.appendChild(divElement);
+    divElements.push(divElement);
+  });
+}
+
+const divGroup = divMaker(pageTitle, pageBody, leftBody, rightBody)
