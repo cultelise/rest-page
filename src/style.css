@@ -1,5 +1,12 @@
-#content {
+body {
   display: grid;
+  grid-template: 20px 1fr / 1fr 1fr;
+  background: black;
+}
+#content {
+  background-color: white;
+  grid-row: 2 span 1;
+  grid-column: span 2;
   grid-template: 1fr 10fr / 1fr;
   border: 1px solid black;
 }
@@ -7,6 +14,15 @@
 #content * {
   display: grid;
   border: 1 solid black;
+}
+
+button {
+  border: 1px solid white;
+  color: black;
+  background-color: aqua;
+  font-size: 20px;
+  justify-self: center;
+  align-self: center;
 }
 
 #pageTitle {
@@ -20,6 +36,7 @@
 }
 
 #pageBody {
+  min-height: 600px;
   grid-row: 2 span 1;
   grid-template: 1fr / 1fr 1fr;
 }
@@ -70,8 +87,6 @@ ul {
   border: none;
   border-bottom: 1px solid black;
 }
-
-
 
 #li5 {
   border-bottom: none;

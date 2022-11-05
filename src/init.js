@@ -1,5 +1,4 @@
-const content = document.getElementById('content'), 
-  divElements = [];
+const divElements = [];
 
 const listFactory = (type, listItemNumber, className) => {
   let counter = 0;
@@ -40,15 +39,15 @@ const divFactory = (div, parent, text, divClass = '', addList, type, num, itemCl
 }
 
 const 
-  pageTitle = divFactory('pageTitle', content, 'Restaurant Menu'),
-  pageBody = divFactory('pageBody', content),
+  content = divFactory('content', document.body),
+  pageTitle = divFactory('pageTitle', content.createdDiv, 'Restaurant Menu'),
+  pageBody = divFactory('pageBody', content.createdDiv),
   leftBody = divFactory('leftBody', pageBody.createdDiv, undefined, 'pageBodySection'),
   rightBody = divFactory('rightBody', pageBody.createdDiv, undefined, 'pageBodySection'),
   leftTitle = divFactory('leftTitle', leftBody.createdDiv, 'Appetizer'),
   rightTitle = divFactory('rightTitle', rightBody.createdDiv, 'Entree'),
   leftList = divFactory('leftList', leftBody.createdDiv, undefined, '', true, 'unordered', 5, 'leftListItems');
 
-  console.log(leftList)
 
 const appendDiv = (...divObject) => {
   divObject.forEach(div => {
@@ -59,6 +58,8 @@ const appendDiv = (...divObject) => {
 }
 
 
-appendDiv(pageTitle, pageBody, leftBody, rightBody, leftTitle, rightTitle, leftList);
+export const page = () => appendDiv(
+  pageTitle, pageBody, leftBody, rightBody, leftTitle, rightTitle, leftList, content
+  );
 
 
