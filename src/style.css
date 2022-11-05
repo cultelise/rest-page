@@ -4,6 +4,11 @@
   border: 1px solid black;
 }
 
+#content * {
+  display: grid;
+  border: 1 solid black;
+}
+
 #pageTitle {
   grid-row: span 1;
   grid-template: 1fr / 1fr;
@@ -20,6 +25,25 @@
   grid-template: 1fr / 1fr 1fr;
 }
 
+#rightBody,
+#leftBody {
+  display: grid;
+  grid-template: 1fr 9fr / 1fr;
+  font-size: 2em;
+}
+
 #leftBody {
   border-right: 1px solid black;
+}
+
+#leftTitle,
+#rightTitle {
+  text-align: center;
+  align-content: center;
+  border-bottom: 1px solid black;
+}
+
+li,
+ul {
+  border: 1px solid black;
 }
