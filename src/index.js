@@ -1,6 +1,6 @@
 import {page as page1} from './init';
-import './style.css';
 import {page as page2} from './tab';
+import './style.css';
 
 
 const btn = document.createElement('button');
@@ -11,6 +11,7 @@ btn.addEventListener('click', () => {
   }
   page1();
 });
+
 btn.textContent = 'Menu'
 document.body.appendChild(btn)
 
@@ -22,5 +23,6 @@ btn2.addEventListener('click', () => {
   }
   page2();
 });
+
 btn2.textContent = 'Contact'
 document.body.appendChild(btn2)

@@ -2,13 +2,15 @@ body {
   display: grid;
   grid-template: 20px 1fr / 1fr 1fr;
   background: black;
+  gap: 10px;
 }
 #content {
   background-color: white;
   grid-row: 2 span 1;
   grid-column: span 2;
   grid-template: 1fr 10fr / 1fr;
-  border: 1px solid black;
+  border: 1px solid blue;
+  padding: 10px;
 }
 
 #content * {
@@ -19,7 +21,7 @@ body {
 button {
   border: 1px solid white;
   color: black;
-  background-color: aqua;
+  background-color: blue;
   font-size: 20px;
   justify-self: center;
   align-self: center;
@@ -32,13 +34,13 @@ button {
   border: none;
   align-items: center;
   font-size: 3em;
-  border-bottom: 1px solid black;
 }
 
 #pageBody {
   min-height: 600px;
   grid-row: 2 span 1;
   grid-template: 1fr / 1fr 1fr;
+  border: 1px solid black;
 }
 
 #rightBody,
@@ -58,10 +60,6 @@ button {
   border-bottom: 1px solid black;
 }
 
-#leftList {
-  display: grid;
-}
-
 ol {
   margin: 0px;
   padding: 0px;
@@ -74,6 +72,7 @@ ul {
   margin: 0px;
 }
 
+.rightListItems::before,
 .leftListItems::before {
   display: grid;
   align-content: center;
@@ -82,12 +81,17 @@ ul {
   border-right: 1px solid black;
 }
 
+.rightListItems,
 .leftListItems {
   grid-template: 1fr / 1fr 10fr;
   border: none;
   border-bottom: 1px solid black;
 }
 
-#li5 {
-  border-bottom: none;
-}
+.li5.leftListItems {
+  border: none;
+} 
+
+.li6.rightListItems {
+  border: none;
+} 
